@@ -1,0 +1,46 @@
+<form id="form" action="/signup" method="POST">
+  <h2 class="user-form-heading">Sign Up</h2>
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username">
+  <div class="username-message">Username already taken</div>
+  <label for="email">Email</label>
+  <input id="email" type="text" name="email">
+  <label for="city">City</label>
+  <input id="city" type="text" name="city">
+  <label for="street">Street</label>
+  <input id="street" type="text" name="street">
+  <label for="zipcode">ZIP Code</label>
+  <input id="zipcode" type="text" name="zipcode">
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password">
+  {{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+<button type="submit">Sign Up</button>
+<p>Already have an account? <a href="/">Login</a> now.</p>
+</form>
+
+<style>
+    .username-message {
+      display: none;
+    }
+</style>
+<script>
+  var usernameMessage = document.getElementsByClassName("username-message")[0]
+
+  var userNameInput = document.getElementById("username")
+  userNameInput.addEventListener("blur", ()=> {
+    axios.get(`/username-taken/${userNameInput.value}`)
+      .then((response)=> {
+        if(response.data.taken) {
+          usernameMessage.style.display = "block"
+        }
+        else {
+          usernameMessage.style.display = "none"
+        }
+      })
+      .catch((err)=> {
+        console.log(err);
+      })
+  })
+</script>

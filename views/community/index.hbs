@@ -1,0 +1,15 @@
+{{> navuser }}
+<div id="container">
+  <h1>All the posts</h1>
+  <ul>
+    {{#each posts}}
+      <li>
+        <a href="/community/show">
+        <img src="{{img}}" alt="">
+        <h2>{{title}}</h2>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
