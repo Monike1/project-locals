@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Post = require('../models/post');
+const multer = require('multer');
+const Picture = require('../models/picture');
 
 // to show the list of posts 
 router.get('/community/', (req, res) => {
@@ -33,6 +35,16 @@ router.get('/community/:postId', (req, res) => {
       res.render('community/post', {posts: result});
     }
   });
+});
+
+// to render: add new post form 
+router.get('/community/new-post', (req, res, next) => {
+  if(!req.session.currentUser) {
+    res.redirect("/")
+    return;
+  }
+  console.log("hello! In session", req.session.currentUser)
+  res.render('community/new-post', {user:req.session.currentUser});
 });
 
 module.exports = router;
