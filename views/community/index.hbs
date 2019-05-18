@@ -1,10 +1,11 @@
 {{> navuser }}
 <div id="container">
   <h1>All the posts</h1>
+  <p>Hello, {{user.username}}</p>
   <ul>
     {{#each posts}}
       <li>
-        <a href="/community/show">
+        <a href="/community/{{_id}}">
         <img src="{{img}}" alt="">
         <h2>{{title}}</h2>
         </a>

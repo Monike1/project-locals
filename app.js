@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost/locals', {useNewUrlParser: true}, (err)=> 
     }
 })
 
-app.use(cookieParser())
+app.use(cookieParser());
 
 app.use(session({
   secret: "basic-auth-secret",
@@ -38,6 +38,16 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use('/', require('./routes/community'));
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/user'));
+
+function authenticateWithSession(req, res, next) {
+  if(req.session.currentUser)  next()
+  else res.send("You must log in!!!")
+}
+
+function attachUserInfo(req, res, next) {
+  res.locals.currentUser = req.session.currentUser
+  next()
+}
 
 app.listen(3000, ()=> {
     console.log("Listening!!!!!");
