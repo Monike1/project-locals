@@ -1,8 +1,8 @@
 {{> nav }}
 <h1>Detailed view</h1>
 
-  {{#each posts}}
-    <h2>{{title}}</h2>
-    <img>{{img}}</img>
-    <p>{{body}}</p>
+  {{#each picture}}
+    <h2>{{this.name}}</h2>
+    <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
+    <p>{{this.posttext}}</p>
   {{/each}}

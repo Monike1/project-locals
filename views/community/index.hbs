@@ -1,16 +1,12 @@
 {{> navuser }}
 <div id="container">
   <h1>All the posts</h1>
-  <p>Hello, {{user.username}}</p>
-  <ul>
-    {{#each posts}}
-      <li>
-        <a href="/community/{{_id}}">
-        <img src="{{img}}" alt="">
-        <h2>{{title}}</h2>
-        </a>
-      </li>
-    {{/each}}
-  </ul>
+  <p>Hello, {{ user.username }}</p>
+
+  {{#each pictures}}
+    <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
+    <h2>{{this.name}}</h2>
+    <p>{{this.postText}}</p>
+  {{/each}}
 </div>
 
