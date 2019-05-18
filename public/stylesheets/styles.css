@@ -1,4 +1,7 @@
-
+body {
+  font-family: 'Lucida Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
 
 #form {
   margin: 30px auto;

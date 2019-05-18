@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const router = express.Router();
 const path    = require('path');
 const mongoose = require('mongoose');
 const hbs = require('hbs');
@@ -34,10 +35,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials(__dirname + '/views/partials');
 
 // routing
-app.use('/', require('./routes/community'));
+protectedPages(app.use('/', require('./routes/community')));
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/user'));
+
+// to check if user is logged in before rendering protected pages
+function protectedPages() {
+  router.use((req,res,next) => {
+    if (req.session.currentUser) {
+      next();
+    } else {
+      res.render('auth/login');
+    }
+  });
+}
 
 app.listen(3000, ()=> {
     console.log("Listening!!!!!");
 });
+
+module.exports = app;
