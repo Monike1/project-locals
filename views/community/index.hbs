@@ -1,13 +1,14 @@
 {{> navuser }}
 <div id="container">
-  <h1>See what locals say</h1>
+  <h1 class="wrap-padding-lr">See what locals say</h1>
 
   {{#each posts}}
-    <div class="post">
+    <div class="wrap-padding">
       <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
       <h2>{{this.name}}</h2>
       <p>{{this.postText}}</p>
     </div>
+    <hr class="wrap-padding-lr">
   {{/each}}
 </div>
 

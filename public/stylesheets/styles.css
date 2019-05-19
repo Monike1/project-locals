@@ -1,8 +1,55 @@
+/* general styles ----------------------------------------------------------- */
 body {
-  font-family: 'Lucida Sans', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  line-height: 1.5;
+  color: #5b5e6d;
 }
 
+h1 {
+  font-size: 2em;
+}
+
+h1, h2 {
+  font-family: 'Source Serif Pro', serif;
+  color: #2C303F;
+}
+
+img {
+  border: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap-padding {
+  padding: 2rem 5%;
+} 
+
+.wrap-padding-lr {
+  padding: 0 5%;
+}
+
+/* header styles ----------------------------------------------------------- */
+header {
+  padding: 2rem 5%;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+  color: #5b5e6d; 
+}
+
+header nav a {
+  font-size: 20px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+
+/* form styles ----------------------------------------------------------- */
 #form {
   margin: 30px auto;
   width: 380px;
@@ -62,6 +109,6 @@ body {
   width: 100%;
 }
 
-.post-img {
+/* .post-img {
   width: 25vw;
-}
+} */

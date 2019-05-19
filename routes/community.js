@@ -31,10 +31,10 @@ router.post('/upload', upload.single('photo'), (req, res, next) => {
     res.redirect('community');
   });
 
-  let updatedUser = new User({
-    posts: { $push: { posts: post._id} }
-  });
-  User.findByIdAndUpdate({_id: req.session.currentUser._id}, updatedUser);
+  // let updatedUser = new User({
+  //   posts: { $push: { posts: post._id} }
+  // });
+  // User.findByIdAndUpdate({_id: req.session.currentUser._id}, updatedUser);
   
 });
 
