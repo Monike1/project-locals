@@ -2,10 +2,12 @@
 <div id="container">
   <h1>See what locals say</h1>
 
-  {{#each pictures}}
-    <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
-    <h2>{{this.name}}</h2>
-    <p>{{this.postText}}</p>
+  {{#each posts}}
+    <div class="post">
+      <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
+      <h2>{{this.name}}</h2>
+      <p>{{this.postText}}</p>
+    </div>
   {{/each}}
 </div>
 

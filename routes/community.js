@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require('multer');
 const Post = require('../models/post');
-const Picture = require('../models/picture');
+const User = require('../models/user');
 
 // route to upload from project base path
 var upload = multer({ dest: './public/uploads/' });
@@ -19,16 +19,23 @@ router.get('/community/new-post', (req, res, next) => {
 });
 
 router.post('/upload', upload.single('photo'), (req, res, next) => {
-  const pic = new Picture({
+  const post = new Post({
     name: req.body.name,
     path: `/uploads/${req.file.filename}`,
     originalName: req.file.originalname,
-    postText: req.body.posttext
+    postText: req.body.posttext,
+    author: req.session.currentUser._id // works
   });
 
-  pic.save((err) => {
+  post.save((err) => {
     res.redirect('community');
   });
+
+  let updatedUser = new User({
+    posts: { $push: { posts: post._id} }
+  });
+  User.findByIdAndUpdate({_id: req.session.currentUser._id}, updatedUser);
+  
 });
 
 /* GET community home page. */
@@ -37,8 +44,8 @@ router.get('/community', (req, res, next) => {
     res.redirect("/");
     return;
   }
-  Picture.find((err, pictures) => {
-    res.render('community/index', {pictures});
+  Post.find((err, posts) => {
+    res.render('community/index', {posts});
   });
 });
 

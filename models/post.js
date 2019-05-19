@@ -1,12 +1,16 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-  title: { type: String },
-  img: { type: String },
-  body: { type: String },
+  name: String,
+  path: String,
+  originalName: String,
+  postText: String,
+  author: [ { type : Schema.Types.ObjectId, ref : 'users' } ]// works
+}, {
+  timestamps: { createdAt: "created_At", updatedAt: "updated_At"}
 });
 
-// 'posts' refers to the collection in locals database
-const Post = mongoose.model('posts', postSchema);
+var Post = mongoose.model("Post", postSchema);
+
 module.exports = Post;
