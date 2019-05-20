@@ -1,13 +1,18 @@
-<form id="form" action="/login" method="POST">
-  <h2 class="user-form-heading">Login</h2>
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username">
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password">
-  {{#if errorMessage }}
-  <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
-  <button type="submit">Login</button>
-  
-  <p>Don't have an account? <a href="/signup">Sign up</a> now.</p>
-</form>
+<div id="login-bg-img">
+  {{> navlogo }}
+  <form id="form" action="/login" method="POST">
+    <h2 class="user-form-heading">Login</h2>
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username">
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password">
+    {{#if errorMessage }}
+      <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
+    <button type="submit">Login</button>
+    
+    <p>Don't have an account? <a href="/signup">Sign up</a> now.</p>
+  </form>
+</div>
+
+

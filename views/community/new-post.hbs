@@ -1,10 +1,11 @@
 {{> navmain }}
 <div class="wrap-padding">
-  <h2>Add a new post</h2>
-  <form action="/upload" method="POST" enctype="multipart/form-data">
-    <input type="text" name="name">
+  <form id="form" action="/upload" method="POST" enctype="multipart/form-data">
+    <h2 class="user-form-heading">Add a new post</h2>
+    <label for="name">Title</label>
+    <input type="text" name="name" id="name">
     <input type="file" name="photo">
     <textarea name="posttext" id="posttext" cols="30" rows="10"></textarea>
-    <input type="submit" value="Save">
+    <button type="submit">Save</button>
   </form>
 </div>

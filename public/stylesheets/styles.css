@@ -1,6 +1,7 @@
 /* general styles ----------------------------------------------------------- */
 body {
   margin: 0 auto;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -31,21 +32,45 @@ img {
   padding: 0 5%;
 }
 
+#login-bg-img {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/chair-coffee-shop.jpg");
+  padding: 30px 0 300px 0;
+
+}
+
 /* header styles ----------------------------------------------------------- */
 header {
   padding: 2rem 5%;
+  background-color: #43b2e6;
 }
 
 header nav {
   display: flex;
-  justify-content: flex-end;
-  color: #5b5e6d; 
+  justify-content: space-between;
+  align-items: center;
+  color: #fff; 
 }
 
-header nav a {
-  font-size: 20px;
-  padding: 10px;
+nav i {
+  font-size: 30px;
+  align-self: center;
+  color: #fff; 
   margin-left: 10px;
+}
+
+#logo {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.login-signup-header {
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
 }
 
 
@@ -55,6 +80,7 @@ header nav a {
   width: 380px;
   border: 1px solid #cacaca;
   padding: 20px;
+  background-color: #fff;
 }
 
 #form label {
@@ -63,6 +89,15 @@ header nav a {
   margin-bottom: 10px;
   text-align: center;
   width: 100%;
+}
+
+#form textarea {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #form input,

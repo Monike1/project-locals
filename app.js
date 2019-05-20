@@ -9,7 +9,9 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb://localhost/locals', {useNewUrlParser: true}, (err)=> {
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, (err)=> {
     if(!err) {
       console.log("connected");
       
@@ -21,7 +23,7 @@ mongoose.connect('mongodb://localhost/locals', {useNewUrlParser: true}, (err)=> 
 app.use(cookieParser());
 
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: process.env.CO0KIE_SECRET,
   cookie: { maxAge: 600000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
@@ -50,7 +52,7 @@ function protectedPages() {
   });
 }
 
-app.listen(3000, ()=> {
+app.listen(process.env.PORT, ()=> {
     console.log("Listening!!!!!");
 });
 
