@@ -17,16 +17,25 @@ h1, h2 {
   color: #2C303F;
 }
 
-img {
+.post-img {
   border: 0;
   width: 100%;
-  max-width: 100%;
   height: auto;
 }
 
 .wrap-padding {
   padding: 2rem 5%;
 } 
+
+.wrap-padding a {
+  color: #43a3e6;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.wrap-padding a:hover {
+  color: #5b5e6d;
+}
 
 .wrap-padding-lr {
   padding: 0 5%;
@@ -39,6 +48,12 @@ img {
   background-image: url("../images/chair-coffee-shop.jpg");
   padding: 30px 0 300px 0;
 
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+  margin-top: 2rem;
 }
 
 /* header styles ----------------------------------------------------------- */
@@ -144,6 +159,13 @@ nav i {
   width: 100%;
 }
 
-/* .post-img {
-  width: 25vw;
-} */
+/* min width 768px ----------------------------------------------------------- */
+@media (min-width: 768px) {
+  .post-img {
+    float: left;
+    width: 25vw;
+    height: auto;
+    margin: 0 2rem 2rem 0;
+  }
+}
+

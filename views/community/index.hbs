@@ -3,12 +3,14 @@
   <h1 class="wrap-padding-lr">See what locals say</h1>
 
   {{#each posts}}
-    <div class="wrap-padding">
+    <div class="wrap-padding post-wrapper">
       <img class="post-img" src="{{this.path}}" alt="{{this.name}}">
-      <h2>{{this.name}}</h2>
-      <p>{{this.postText}}</p>
+      <div>
+        <h2>{{this.name}}</h2>
+        <p>{{this.postText}}</p>
+      </div>
     </div>
-    <hr class="wrap-padding-lr">
+    <div class="clearfix"></div>
   {{/each}}
 </div>
 
